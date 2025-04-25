@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_furniture_ecommerce_ui/presentation/home/__components/bestSellerProductCard.dart';
+import 'package:flutter_furniture_ecommerce_ui/presentation/home/__components/categoryCard.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -59,97 +61,158 @@ class HomePage extends StatelessWidget {
           ),
         ),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Expanded(
-              child: SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                  children: [
-                    CategoryCard(
-                      title: 'Chairs',
-                      imagePath: 'assets/images/chair.jpg',
-                      onTap: () {
-                        // Handle tap for Chairs
-                      },
-                    ),
-                    CategoryCard(
-                      title: 'Tables',
-                      imagePath: 'assets/images/table.jpg',
-                      onTap: () {
-                        // Handle tap for Tables
-                      },
-                    ),
-                    CategoryCard(
-                      title: 'Sofas',
-                      imagePath: 'assets/images/sofa.jpg',
-                      onTap: () {
-                        // Handle tap for Sofas
-                      },
-                    ),
-                    CategoryCard(
-                      title: 'Beds',
-                      imagePath: 'assets/images/bed.jpg',
-                      onTap: () {
-                        // Handle tap for Beds
-                      },
-                    ),
-                    CategoryCard(
-                      title: 'Doors',
-                      imagePath: 'assets/images/bed.jpg',
-                      onTap: () {
-                        // Handle tap for Beds
-                      },
-                    ),
-                    CategoryCard(
-                      title: 'Benches',
-                      imagePath: 'assets/images/bed.jpg',
-                      onTap: () {
-                        // Handle tap for Beds
-                      },
-                    ),
-                  ],
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          const SizedBox(height: 20),
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              children: [
+                CategoryCard(
+                  title: 'Chairs',
+                  imagePath: 'assets/images/chair.png',
+                  onTap: () {
+                    // Handle tap for Chairs
+                  },
+                ),
+                CategoryCard(
+                  title: 'Tables',
+                  imagePath: 'assets/images/table.png',
+                  onTap: () {
+                    // Handle tap for Tables
+                  },
+                ),
+                CategoryCard(
+                  title: 'Sofas',
+                  imagePath: 'assets/images/sofa.png',
+                  onTap: () {
+                    // Handle tap for Sofas
+                  },
+                ),
+                CategoryCard(
+                  title: 'Beds',
+                  imagePath: 'assets/images/bed.png',
+                  onTap: () {
+                    // Handle tap for Beds
+                  },
+                ),
+                CategoryCard(
+                  title: 'Doors',
+                  imagePath: 'assets/images/doors.png',
+                  onTap: () {
+                    // Handle tap for Beds
+                  },
+                ),
+                CategoryCard(
+                  title: 'Benches',
+                  imagePath: 'assets/images/benches.png',
+                  onTap: () {
+                    // Handle tap for Beds
+                  },
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          Row(
+            children: [
+              Container(
+                margin: const EdgeInsets.only(left: 20),
+                child: const Text(
+                  'Best Sellers',
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class CategoryCard extends StatelessWidget {
-  final String title;
-  final String imagePath;
-  final VoidCallback onTap;
-
-  const CategoryCard({
-    Key? key,
-    required this.title,
-    required this.imagePath,
-    required this.onTap,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onTap,
-      child: Column(
-        children: [
-          Image.asset(
-            imagePath,
-            width: 100,
-            height: 100,
-            fit: BoxFit.cover,
+              const Spacer(),
+              const Text(
+                'View All',
+                style: TextStyle(
+                  fontSize: 14,
+                  color: Colors.black45,
+                ),
+              ),
+              IconButton(
+                icon: const Icon(Icons.arrow_forward),
+                onPressed: () {
+                  // Handle view all action
+                },
+              ),
+            ],
           ),
-          const SizedBox(height: 8),
-          Text(
-            title,
-            style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+          const SizedBox(
+            height: 20,
+          ),
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              children: [
+                BestSellerProductCard(
+                  imagePath: 'assets/images/sofa.jpg',
+                  title: 'Modern Sofa',
+                  price: "299.99",
+                  onTap: () {
+                    // Handle tap for Modern Sofa
+                  },
+                ),
+                BestSellerProductCard(
+                  imagePath: 'assets/images/chairs1.jpg',
+                  title: 'Stylish Chair',
+                  price: "149.99",
+                  onTap: () {
+                    // Handle tap for Stylish Chair
+                  },
+                ),
+                BestSellerProductCard(
+                  imagePath: 'assets/images/table.jpg',
+                  title: 'Elegant Table',
+                  price: "199.99",
+                  onTap: () {
+                    // Handle tap for Elegant Table
+                  },
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          Row(
+            children: [
+              Container(
+                margin: const EdgeInsets.only(left: 20),
+                child: const Text(
+                  'New Arrivals',
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              const Spacer(),
+              const Text(
+                'View All',
+                style: TextStyle(
+                  fontSize: 14,
+                  color: Colors.black45,
+                ),
+              ),
+              IconButton(
+                icon: const Icon(Icons.arrow_forward),
+                onPressed: () {
+                  // Handle view all action
+                },
+              ),
+            ],
+          ),
+          const SizedBox(
+            height: 20,
           ),
         ],
       ),
